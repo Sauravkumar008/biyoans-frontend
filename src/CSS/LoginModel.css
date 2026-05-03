@@ -1,0 +1,63 @@
+@font-face {
+    font-family: Surgena;
+    font-style: normal;
+    src: url('../assets/Surgena.ttf');
+}
+
+.Surgena {
+    font-family: Surgena;
+}
+
+/* Hide the default checkbox */
+.checkbox-container input {
+  display: none;
+}
+
+/* Style the label */
+.checkbox-container {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 16px;
+  user-select: none;
+}
+
+/* Custom checkbox appearance */
+.checkmark {
+  height: 16px;
+  width: 16px;
+  background-color: #00000030;
+  /* beckground-opacity: 0.1; */
+  /* border-radius: 6px; For rounded corners */
+  margin-right: 5px;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+/* When checkbox is checked, style the custom box */
+.checkbox-container input:checked + .checkmark {
+  background-color: #0d629b;
+}
+
+/* Checkmark (tick) symbol */
+.checkmark::after {
+  content: "";
+  position: absolute;
+  display: none;
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid rgb(6, 0, 61);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* Show tick when checked */
+.checkbox-container input:checked + .checkmark::after {
+  display: block;
+}
+
+.signupBtn {
+    box-shadow: 5px 5px 10px rgba(0, 0, 0);
+}

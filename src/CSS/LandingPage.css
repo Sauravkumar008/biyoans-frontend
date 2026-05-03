@@ -1,0 +1,441 @@
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace&family=Cal+Sans&family=Roboto+Slab:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace&family=Cal+Sans&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Slab:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace&family=Cal+Sans&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Slab:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace&family=Cal+Sans&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Slab:wght@100..900&family=Space+Grotesk:wght@300..700&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background: radial-gradient(98.33% 138.28% at 1.67% 0%, #F4D1B3 0%, #DEB8C4 6.09%, #DCB5C3 11.86%, #C098CC 17.57%, #9A6ECD 25.52%, #694EAD 40.07%, #6A41AE 46.4%, #482E78 62.88%, #131B31 72.39%, #05070C 81.43%);  */
+
+
+  /* background: radial-gradient(
+                98.33% 138.28% at 1.67% 0%,
+                #F4D1B3 0%,      
+                #F1C6B0 3%,       
+                #EFC4BB 6%,       
+                #E5B9C0 9%,        
+                #DEB8C4 12%,      
+                #DCB5C3 15%,      
+                #CFA5C9 18%,       
+                #C098CC 22%,       
+                #B184D1 26%,       
+                #9A6ECD 30%,       
+                #865AC5 35%,       
+                #694EAD 40.07%,    
+                #6A41AE 46.4%,     
+                #573592 53%,       
+                #482E78 62.88%,    
+                #2D234C 70%,       
+                #131B31 75%,       
+                #0e1420 81%,       
+                #0B101A 87%,       
+                #030407 93%,
+                #030408 97%,
+                #010203 100%
+  ); */
+  z-index: -1;
+  background: radial-gradient(circle at top left,
+      #F4D1B3 0%,
+      #F4D1B3 7%,
+      #C49DE9 25%,
+      #A470DF 45%,
+      #6E47C6 65%,
+      #0e1c2a 85%,
+      #010203 100%);
+  /* background-size: cover;  */
+}
+
+/* .navi{
+    position: relative;
+    z-index: 1;
+    display: flex;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 2rem;
+    width: calc(100% - 3rem);
+    background-color: red;
+    backdrop-filter: blur(10px);
+    
+} */
+
+@font-face {
+  font-family: 'surgena';
+  font-style: normal;
+  src: url('../assets/Surgena.ttf');
+}
+
+.BiyoansText{
+  font-family: 'surgena';
+}
+
+.Biyoans {
+  font-family: "Bruno Ace", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.navText {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  width: 6rem;
+  position: relative;
+}
+
+.navText:after {    
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 2px;
+  /* left: 50%; */
+  position: absolute;
+  background: #fff;
+  transition: transform 0.5s ease, width 0.5s ease;
+  width: 0;
+}
+.navText:hover:after { 
+  width: 100%; 
+  left: 0; 
+}
+
+.JoinUs {
+  background: linear-gradient(90deg, #060218 0%, #050117 100%);
+  z-index: 3;
+  transition: background 0.4s, box-shadow 0.4s, transform 0.2s;
+  box-shadow: 0 2px 12px 0 #a470df40;
+}
+
+.JoinUs:hover {
+  background: linear-gradient(90deg, #a470df 0%, #7E66AD 100%);
+  box-shadow: 0 4px 24px 0 #a470df80, 0 0 0 4px #a470df33;
+  transform: translateY(-3px) scale(1.04);
+  filter: brightness(1.08) saturate(1.2);
+}
+
+.JoinUsCont {
+  background: linear-gradient(90deg, #29223f00, #a470df71, #a470df97, #7E66AD, #A470DF);
+  box-shadow: 5px -5px 5px #a470df5d;
+  animation: joinus-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes joinus-glow {
+  0% {
+    box-shadow: 0 0 12px 2px #a470df80, 5px -5px 5px #a470df5d;
+    filter: brightness(1) saturate(1.1);
+  }
+  100% {
+    box-shadow: 0 0 32px 8px #a470dfcc, 5px -5px 10px #a470df8a;
+    filter: brightness(1.15) saturate(1.3);
+  }
+}
+
+
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes hue {
+  0% {
+    filter: hue-rotate(0deg) drop-shadow(0 0 16px #6366f1) brightness(1.1) saturate(1.2);
+  }
+
+  100% {
+    filter: hue-rotate(360deg) drop-shadow(0 0 16px #6366f1) brightness(1.1) saturate(1.2);
+  }
+}
+
+.animate-hue {
+  animation: hue 8s linear infinite;
+}
+
+.firstHalf {
+  text-align: left;
+  padding-left: 2rem;
+  line-height: 1.2;
+  justify-items: center;
+  align-items: center;
+  display: flex;
+  font-weight: 600;
+  font-family: "Urbanist", sans-serif;
+}
+
+.bName {
+  font-family: "Bruno Ace", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  line-height: 1.2;
+}
+
+.secondHalf {
+  align-items: center;
+  justify-content: center;
+}
+
+.firstCircle {
+  height: 500px;
+  width: 500px;
+  border-radius: 50%;
+  border-left: 1px solid #c8b2eb;
+  border-right: 1px solid #c8b2eb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: rotate 20s linear infinite;
+  z-index: 1;
+}
+
+
+.CircleIco1 {
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  position: absolute;
+  left: 5rem;
+  top: 1rem;
+  /* background-color: green; */
+  background: url('../Images/Dev/AnkitSir.png');
+  background-size: cover;
+  background-position: center;
+  animation: revolve 20s linear reverse infinite;
+  border: 0.5px solid whitesmoke;
+}
+.CircleIco11{
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 1rem;
+  right: 5rem;
+  /* background-color: honeydew; */
+  background: url('../Images/Dev/AnkitSir.png');
+  background-size: cover;
+  background-position: center;
+  animation: revolve 20s linear reverse infinite;
+}
+.CircleIco12{
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  position: absolute;
+  right: 1rem;
+  top: 5rem;
+  background-color: navajowhite;
+  
+  background: url('../Images/Dev/AnkitSir.png');
+  background-size: cover;
+  background-position: center;
+  animation: revolve 20s linear reverse infinite;
+}
+.CircleIco13{
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  position: absolute;
+  left: 1rem;
+  bottom: 5rem;
+  background-color: lightcoral;
+  
+  background: url('../Images/Dev/AnkitSir.png');
+  background-size: cover;
+  background-position: center;
+  animation: revolve 20s linear reverse infinite;
+}
+
+.secondCircle {
+  height: 80%;
+  width: 80%;
+  border-radius: 50%;
+  border-left: 1px solid #c8b2eb;
+  border-right: 1px solid #c8b2eb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: rotate 10s linear reverse infinite;
+  z-index: 2;
+}
+
+.CircleIco2 {
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  position: absolute;
+  left: -1rem;
+  bottom: 7rem;
+  background-color: green;
+  background-image: url('../Images/Dev/shivam.jpg');
+  background-size: cover; 
+  background-position: center;
+  animation: revolve 20s linear infinite;
+  border: 0.5px solid whitesmoke;
+  box-shadow: 5px 5px 10px 2px #C8ABA3;
+  border: 0.5px solid whitesmoke;
+}
+.CircleIco21{
+  
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  position: absolute;
+  top: -1rem;
+  right: 7rem;
+  background-color: honeydew;
+  background-image: url('../Images/Dev/Saurav.jpg');
+  background-size: cover;
+  background-position: center;
+  animation: revolve 20s linear infinite;
+  box-shadow: 5px 5px 10px 2px #C8ABA3;
+  border: 0.5px solid whitesmoke;
+}
+
+.CircleIco22{
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  position: absolute;
+  right: 1rem;
+  bottom: 3rem;
+  background-color: navajowhite;
+  background-image: url('../Images/Dev/nidhi.jpg');
+  background-size: cover;
+  background-position: center;
+  animation: revolve 20s linear infinite;
+  animation: revolve 20s linear infinite;
+  border: 0.5px solid whitesmoke;
+  box-shadow: 5px 5px 10px 2px #C8ABA3;
+}
+
+.thirdCircle {
+  height: 70%;
+  width: 70%;
+  border-radius: 50%;
+  border-left: 1px solid #c8b2eb;
+  border-right: 1px solid #c8b2eb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+  animation: rotate 10s linear infinite;
+}
+
+.CircleIco3 {
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  background-color: green;
+  background-image: url('../Images/Dev/Pankaj.png');
+  background-size: cover;
+  background-position: center;
+  box-shadow: 5px 5px 10px 2px #458aff;
+  border: 0.5px solid whitesmoke;  
+  animation: revolve 20s linear reverse infinite;
+}
+.CircleIco13:hover {
+  animation-play-state: paused;
+}
+.CircleIco33{
+  
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  position: absolute; 
+  top: 1rem;
+  left: 1rem;
+  background-color: honeydew;
+  background-image: url('../Images/Dev/passport.png');
+  background-size: cover;
+  background-position: center;
+  animation: revolve 20s linear reverse infinite;
+  border: 0.5px solid whitesmoke;
+  box-shadow: 5px 5px 7px 1px #d4a88ddd;
+}
+.CircleIco33:hover {
+  animation-play-state: paused;
+}
+
+@keyframes revolve {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.firstCircle, .secondCircle, .thirdCircle {
+  /* animation: rotate 10s linear infinite; */
+  transform-origin: center;
+}
+
+/* Pause only the hovered one */
+.firstCircle:hover {
+  animation-play-state: paused;
+}
+
+.secondCircle:hover {
+  animation-play-state: paused;
+}
+
+.thirdCircle:hover {
+  animation-play-state: paused;
+}
+
+.thirdCircle:hover .CircleIco3,
+.thirdCircle:hover .CircleIco33 {
+  animation-play-state: paused;
+}
+
+.firstCircle:hover .CircleIco3,
+.firstCircle:hover .CircleIco33 {
+  animation-play-state: paused;
+}
+
+.firstCircle:hover .CircleIco1,
+.firstCircle:hover .CircleIco11,
+.firstCircle:hover .CircleIco12,
+.firstCircle:hover .CircleIco13 {
+  animation-play-state: paused;
+}
+.secondCircle:hover .CircleIco2,
+.secondCircle:hover .CircleIco21,
+.secondCircle:hover .CircleIco22 {
+  animation-play-state: paused;
+}
+
+.thirdCircle:hover .CircleIco2,
+.thirdCircle:hover .CircleIco21,
+.thirdCircle:hover .CircleIco22 {
+  animation-play-state: paused;
+}
+

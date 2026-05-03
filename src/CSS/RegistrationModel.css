@@ -1,0 +1,36 @@
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+/* Remove number input spinner in modern browsers */
+input[type=number] {
+  appearance: textfield;
+}
+
+/* Hides the text value and shows only the calendar icon */
+.dob-input::-webkit-datetime-edit,
+.dob-input::-webkit-inner-spin-button,
+.dob-input::-webkit-clear-button {
+  display: none;
+  appearance: none;
+  -moz-appearance: textfield;
+}
+
+.dob-input::-webkit-calendar-picker-indicator {
+  filter: invert(100%) sepia(50%) saturate(700%) hue-rotate(265deg);
+  cursor: pointer;
+  opacity: .8;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}

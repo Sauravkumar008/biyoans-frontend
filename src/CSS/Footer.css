@@ -1,0 +1,128 @@
+.footer-container {
+  position: relative;
+  width: 100%;
+  padding: 4rem 2rem 2rem;
+  background: transparent;
+  color: white;
+  overflow: hidden;
+}
+
+.footer-separator {
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(to right, #0ff, #f0f, #0ff);
+  opacity: 0.4;
+  margin-bottom: 3rem;
+}
+
+.footer-glass {
+  backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 2rem;
+  padding: 3rem;
+  z-index: 2;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+}
+
+.footer-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #00ffff;
+}
+
+.footer-tagline {
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  color: #ffffffcc;
+}
+
+.footer-description {
+  font-size: 0.9rem;
+  color: #d4d4d4;
+  margin-top: 1rem;
+}
+
+.footer-heading {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0.8rem;
+  color: #ffffff;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+  color: #00ffff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.footer-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.icon-link {
+  color: #00ffff;
+  font-size: 1.4rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.icon-link:hover {
+  transform: scale(1.3);
+  color: #ffffff;
+}
+
+.footer-copy {
+  font-size: 0.85rem;
+  color: #999;
+}
+
+/* Background blobs */
+.blob {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  filter: blur(140px);
+  opacity: 0.35;
+  z-index: 1;
+}
+
+.blob1 {
+  background: #00ffff;
+  top: -60px;
+  left: -90px;
+}
+
+.blob2 {
+  background: #ff00ff;
+  bottom: -70px;
+  right: -80px;
+}

@@ -1,0 +1,49 @@
+{/* navbar  */}
+                <motion.div
+                    className='h-10 w-[calc(100% - 2rem)] mx-20 mt-2 flex'
+                    variants={navbarVariants}
+                    initial="hidden"
+                    animate={navbarControls}
+                >
+                    <div className='h-[100%] w-[calc(100%/2)] flex-direction-cols flex items-center'>
+                        <div className='flex items-center rounded-2xl p-2 relative group'>
+                            <img
+                                className='ml-2 h-12 w-auto relative z-10 animate-float animate-hue'
+                                src={logo}
+                                alt="Logo"
+                                style={{
+                                    filter: 'drop-shadow(0 0 16px #6366f1) brightness(1.1) saturate(1.2)'
+                                }}
+                            />
+                            <p className='ml-2 text-xl Biyoans relative z-10'>Biyoans</p>
+                        </div>
+
+                        <a className='ml-6 navText text-[1rem] cursor-pointer'>Course</a>
+                        <a className='ml-6 navText text-[1rem] cursor-pointer'>Batches</a>
+                        <a className='ml-6 navText text-[1rem] cursor-pointer'>Gallery</a>
+                        <a className='ml-6 navText text-[1rem] cursor-pointer'>About us</a>
+
+                    </div>
+                    <div className='h-[100%] w-[calc(100%/2)] flex flex-direction-cols items-center justify-end gap-12'>
+                        <motion.div
+                            whileHover={{
+                                scale: 1.15,
+                                y: -2,
+                                // cyan-400
+                                textShadow: "0px 0px 8px rgba(34, 211, 238, 0.8), 0px 0px 16px rgba(34, 211, 238, 0.6)",
+                                rotate: -1
+                            }}
+                            transition={{
+                                type: "spring",
+                                stiffness: 300,
+                                damping: 20
+                            }}
+                        >
+                            <Link
+                                to="/login"
+                                className="text-white font-semibold cursor-pointer"
+                                style={{ display: 'inline-block' }}
+                            >
+                                Log in
+                            </Link>
+                        </motion.div>
