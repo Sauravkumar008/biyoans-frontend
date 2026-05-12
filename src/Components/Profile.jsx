@@ -83,7 +83,7 @@ export default function Profile() {
             // try each candidate until one succeeds
             for (const ident of candidates) {
                 try {
-                    const url = `http://localhost:8080/api/profile?identifier=${encodeURIComponent(ident)}`;
+                    const url = `https://biyoans-backend.onrender.com/api/profile?identifier=${encodeURIComponent(ident)}`;
                     const res = await fetch(url);
                     if (!res.ok) {
                         lastError = { status: res.status, body: await res.text().catch(() => null) };
@@ -132,7 +132,7 @@ export default function Profile() {
     async function fetchEnrollments(studentId) {
         try {
             // try a conventional endpoint; if your backend uses another path, update it
-            const res = await fetch(`http://localhost:8080/api/enrollments?studentId=${encodeURIComponent(studentId)}`);
+            const res = await fetch(`https://biyoans-backend.onrender.com/api/enrollments?studentId=${encodeURIComponent(studentId)}`);
             if (!res.ok) return setEnrollments([]); // silently ignore if endpoint absent
             const data = await res.json();
             setEnrollments(Array.isArray(data) ? data : []);
@@ -168,7 +168,7 @@ export default function Profile() {
             }
 
             if (photoFile) fd.append("photo", photoFile);
-            const res = await fetch('http://localhost:8080/api/profile/update', {
+            const res = await fetch('https://biyoans-backend.onrender.com/api/profile/update', {
                 method: 'POST',
                 body: fd // DO NOT set Content-Type header — the browser will set boundary
             });
@@ -220,7 +220,7 @@ export default function Profile() {
 
     const logout = async () => {
         try {
-            await fetch('http://localhost:8080/api/profile/logout', { method: 'POST' });
+            await fetch('https://biyoans-backend.onrender.com/api/profile/logout', { method: 'POST' });
         } catch (e) { /* ignore */ }
         localStorage.removeItem('biyoans_user');
         sessionStorage.removeItem('biyoans_user');
@@ -230,7 +230,7 @@ export default function Profile() {
     // compute avatar src (place this above the JSX return)
     const rawAvatar = photoPreview || profile?.photoUrl || storedUser?.photoUrl || "";
 
-    const BACKEND_BASE = "http://localhost:8080";
+    const BACKEND_BASE = "https://biyoans-backend.onrender.com";
 
     const resolvedAvatar = (() => {
         if (!rawAvatar) return ""; // nothing to render
@@ -272,7 +272,7 @@ export default function Profile() {
             if (photoFile) fd.append("photo", photoFile);
 
             // POST to the update endpoint (multipart)
-            const res = await fetch("http://localhost:8080/api/profile/update", {
+            const res = await fetch("https://biyoans-backend.onrender.com/api/profile/update", {
                 method: "POST",
                 body: fd
             });

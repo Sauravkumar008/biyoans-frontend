@@ -37,7 +37,7 @@ export default function EditBatchModal({ open, batch, onClose }) {
       const adminPassword = prompt("Enter your admin password to confirm edit (required):", "");
       if (!adminPassword) { toast.error("Password required"); return; }
 
-      const url = `http://localhost:8080/api/batches/${batch.id}?adminIdentifier=${encodeURIComponent(adminIdentifier)}&adminPassword=${encodeURIComponent(adminPassword)}`;
+      const url = `https://biyoans-backend.onrender.com/api/batches/${batch.id}?adminIdentifier=${encodeURIComponent(adminIdentifier)}&adminPassword=${encodeURIComponent(adminPassword)}`;
       const res = await fetch(url, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },

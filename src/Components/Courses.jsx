@@ -50,7 +50,7 @@ const Courses = () => {
   const fetchCourses = async () => {
     try {
       setLoading(true);
-      const res = await fetch("http://localhost:8080/api/courses");
+      const res = await fetch("https://biyoans-backend.onrender.com/api/courses");
       if (!res.ok) throw new Error(`Failed to fetch courses (HTTP ${res.status})`);
       const data = await res.json();
       setCourses(Array.isArray(data) ? data : []);
@@ -101,7 +101,7 @@ const Courses = () => {
     try {
       if (pendingAction.type === "delete") {
         const id = pendingAction.course.id;
-        const url = `http://localhost:8080/api/courses/${id}?adminIdentifier=${encodeURIComponent(identifier)}&adminPassword=${encodeURIComponent(password)}`;
+        const url = `https://biyoans-backend.onrender.com/api/courses/${id}?adminIdentifier=${encodeURIComponent(identifier)}&adminPassword=${encodeURIComponent(password)}`;
         const res = await fetch(url, { method: "DELETE" });
         const data = await res.json().catch(() => ({}));
         if (!res.ok) throw new Error(data.message || `HTTP ${res.status}`);

@@ -35,7 +35,7 @@ const AddCourseForm = () => {
     if (formData.courseImage) fd.append("courseImage", formData.courseImage); // <-- must be 'courseImage'
 
     try {
-      const res = await fetch("http://localhost:8080/api/courses", {
+      const res = await fetch("https://biyoans-backend.onrender.com/api/courses", {
         method: "POST",
         body: fd, // no headers; browser sets correct multipart boundary
       });

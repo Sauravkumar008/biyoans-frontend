@@ -80,7 +80,7 @@ export default function EditCourseModal({
         fd.append("courseImage", imageFile, imageFile.name);
       }
 
-      const url = `http://localhost:8080/api/courses/${encodeURIComponent(course.id)}?adminIdentifier=${encodeURIComponent(adminIdentifier)}&adminPassword=${encodeURIComponent(adminPassword)}`;
+      const url = `https://biyoans-backend.onrender.com/api/courses/${encodeURIComponent(course.id)}?adminIdentifier=${encodeURIComponent(adminIdentifier)}&adminPassword=${encodeURIComponent(adminPassword)}`;
 
       const res = await fetch(url, {
         method: "PUT",

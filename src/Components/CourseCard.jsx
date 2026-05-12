@@ -37,7 +37,7 @@ const CourseCard = ({ course, onEdit, onDelete, onEnroll }) => {
   if (u.startsWith('/images')) return u;
 
   // agar backend uploads hai
-  return `http://localhost:8080${u.startsWith('/') ? '' : '/'}${u}`;
+  return `https://biyoans-backend.onrender.com${u.startsWith('/') ? '' : '/'}${u}`;
 })();
   return (
     <div className="cursor-pointer">

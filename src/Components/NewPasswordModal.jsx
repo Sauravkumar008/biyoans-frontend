@@ -54,7 +54,7 @@ export default function NewPasswordModal({ isOpen, email, otp: propOtp, onClose 
     if (!validate()) return;
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:8080/api/auth/password/complete", {
+      const res = await fetch("https://biyoans-backend.onrender.com/api/auth/password/complete", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, code: otp.trim(), newPassword })

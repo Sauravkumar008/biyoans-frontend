@@ -7,7 +7,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 // Backend base URL (Sirf API calls ke liye)
-const BASE_URL = "http://localhost:8080";
+const BASE_URL = "https://biyoans-backend.onrender.com";
 const API_BASE = `${BASE_URL}/api/gallery`;
 
 const Gallery = () => {

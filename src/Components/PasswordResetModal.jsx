@@ -9,12 +9,12 @@ export default function PasswordResetModal({ isOpen, onClose, onInitiated }) {
 
   // Candidate endpoints to try (ordered). Add/remove as needed.
   const CANDIDATE_URLS = [
-    "http://localhost:8080/api/auth/password/send-otp",
-    "http://localhost:8080/api/auth/password/initiate",
-    "http://localhost:8080/api/auth/signup/send-otp",
-    "http://localhost:8080/api/auth/signup/initiate",
-    "http://localhost:8080/api/superusers/send-otp",
-    "http://localhost:8080/api/superusers/send-otp", // duplicate intentionally safe
+    "https://biyoans-backend.onrender.com/api/auth/password/send-otp",
+    "https://biyoans-backend.onrender.com/api/auth/password/initiate",
+    "https://biyoans-backend.onrender.com/api/auth/signup/send-otp",
+    "https://biyoans-backend.onrender.com/api/auth/signup/initiate",
+    "https://biyoans-backend.onrender.com/api/superusers/send-otp",
+    "https://biyoans-backend.onrender.com/api/superusers/send-otp", // duplicate intentionally safe
   ];
 
   const submit = async () => {

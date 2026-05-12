@@ -16,7 +16,7 @@
 
   export default function AdminDashboard() {
     // backend base (change if your backend runs on different host/port)
-    const BASE = "http://localhost:8080";
+    const BASE = "https://biyoans-backend.onrender.com";
 
     const storedUser = useMemo(() => getStoredUser(), []);
 

@@ -10,7 +10,7 @@ export default function CoursesList() {
   const fetchCourses = async () => {
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:8080/api/courses");
+      const res = await fetch("https://biyoans-backend.onrender.com/api/courses");
       const data = await res.json();
       setCourses(data);
     } catch (e) {
@@ -25,7 +25,7 @@ export default function CoursesList() {
   const handleDelete = async (id) => {
     if (!confirm("Delete this course?")) return;
     try {
-      const res = await fetch(`http://localhost:8080/api/courses/${id}`, { method: "DELETE" });
+      const res = await fetch(`https://biyoans-backend.onrender.com/api/courses/${id}`, { method: "DELETE" });
       if (!res.ok) throw new Error("Delete failed");
       toast.success("Deleted");
       setCourses(courses.filter(c => c.id !== id));

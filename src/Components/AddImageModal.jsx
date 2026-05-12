@@ -24,7 +24,7 @@ export default function AddImageModal({ open=true, onClose }) {
       fd.append("adminIdentifier", user.username || user.email || "");
       fd.append("adminPassword", adminPassword);
 
-      const res = await fetch("http://localhost:8080/api/gallery", {
+      const res = await fetch("https://biyoans-backend.onrender.com/api/gallery", {
         method: "POST",
         body: fd
       });

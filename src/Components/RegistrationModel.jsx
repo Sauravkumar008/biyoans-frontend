@@ -73,7 +73,7 @@ const RegistrationModel = ({ isRegOpen, onClose, setIsRegOpen, setIsLoginOpen })
 
     try {
       // --- Step 1: Send OTP ---
-      const res = await fetch("http://localhost:8080/api/superusers/send-otp", {
+      const res = await fetch("https://biyoans-backend.onrender.com/api/superusers/send-otp", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: formData.email })
@@ -159,7 +159,7 @@ const RegistrationModel = ({ isRegOpen, onClose, setIsRegOpen, setIsLoginOpen })
       fd.append("role", "STUDENT");
       // add photo if you capture it: fd.append("photo", pendingUser.photoFile);
 
-      const url = "http://localhost:8080/api/superusers/create-student";
+      const url = "https://biyoans-backend.onrender.com/api/superusers/create-student";
       console.debug("POST to", url);
       const res = await fetch(url, {
         method: "POST",

@@ -12,7 +12,7 @@ const AddBatchCard = ({ onCreated }) => {
     if (!form.batchName?.trim()) return toast.error("Batch name required");
     try {
       setSaving(true);
-      const res = await fetch("http://localhost:8080/api/batches", {
+      const res = await fetch("https://biyoans-backend.onrender.com/api/batches", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form)

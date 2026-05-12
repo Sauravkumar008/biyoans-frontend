@@ -41,7 +41,7 @@ const Batches = () => {
   const fetchBatches = async () => {
     try {
       setLoading(true);
-      const res = await fetch("http://localhost:8080/api/batches");
+      const res = await fetch("https://biyoans-backend.onrender.com/api/batches");
       if (!res.ok) throw new Error("Failed to fetch batches");
       const data = await res.json();
       setBatches(Array.isArray(data) ? data : []);
@@ -82,7 +82,7 @@ const Batches = () => {
     try {
       if (pendingAction.type === "delete") {
         const id = pendingAction.batch.id;
-        const url = `http://localhost:8080/api/batches/${id}?adminIdentifier=${encodeURIComponent(identifier)}&adminPassword=${encodeURIComponent(password)}`;
+        const url = `https://biyoans-backend.onrender.com/api/batches/${id}?adminIdentifier=${encodeURIComponent(identifier)}&adminPassword=${encodeURIComponent(password)}`;
         const res = await fetch(url, { method: "DELETE" });
         const data = await res.json().catch(() => ({}));
         if (!res.ok) throw new Error(data.message || `HTTP ${res.status}`);

@@ -31,7 +31,7 @@ const [verifiedAdminPassword, setVerifiedAdminPassword] = useState(null);
   async function fetchCourses() {
     try {
       setLoading(true);
-      const res = await fetch("http://localhost:8080/api/courses");
+      const res = await fetch("https://biyoans-backend.onrender.com/api/courses");
       if (!res.ok) throw new Error("Failed to fetch courses");
       const data = await res.json();
       setCourses(data);
@@ -76,7 +76,7 @@ const [verifiedAdminPassword, setVerifiedAdminPassword] = useState(null);
       // DELETE flow (unchanged)
       if (pendingAction.type === "delete") {
         const id = pendingAction.course.id;
-        const url = `http://localhost:8080/api/courses/${id}?adminIdentifier=${encodeURIComponent(
+        const url = `https://biyoans-backend.onrender.com/api/courses/${id}?adminIdentifier=${encodeURIComponent(
           identifier
         )}&adminPassword=${encodeURIComponent(password)}`;
 
