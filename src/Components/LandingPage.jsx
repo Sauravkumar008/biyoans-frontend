@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import '../CSS/LandingPage.css'
 import DecryptedText from './ReactBits/DecryptedText'
-import logo from '../Images/logo.png'
+import logo from '../Images/Logo.png'
 import { motion, useAnimation, AnimatePresence } from 'framer-motion'
 import '../CSS/LandingPage.css'
 import { FaFacebookSquare, FaGithub } from "react-icons/fa";
