@@ -456,7 +456,7 @@ const LandingPage = () => {
   ))}
 </div>
 
- // ... (pichla code same rahega)
+ 
 
                 {isLoginOpen &&
                     <LoginModel isLoginOpen={isLoginOpen} onClose={() => setIsLoginOpen(false)} setIsRegOpen={setIsRegOpen} setIsLoginOpen={setIsLoginOpen} />
