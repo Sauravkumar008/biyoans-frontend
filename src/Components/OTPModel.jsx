@@ -2,19 +2,6 @@
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
-/**
- * OTPModel
- *
- * Props:
- *  - isOpen: boolean
- *  - email: string (target email)
- *  - mode: "signup" | "reset" (default: "signup")
- *  - onClose: function
- *       - called as onClose(success:boolean, extra?) 
- *         - signup mode: onClose(true) means verification succeeded -> parent should create user
- *         - signup mode: onClose(false) means cancelled or failed
- *         - reset mode: you can adapt as needed
- */
 export default function OTPModel({ isOpen, email = "", mode = "signup", onClose }) {
   const [otp, setOtp] = useState("");
   const [loading, setLoading] = useState(false);
@@ -26,23 +13,16 @@ export default function OTPModel({ isOpen, email = "", mode = "signup", onClose 
       setLoading(false);
       setResendLoading(false);
     }
-  }, [isOpen, email, mode]);
+  }, [isOpen]);
 
   if (!isOpen) return null;
 
-  // resolve endpoints used by your backend
-  // signup flow uses /api/superusers/send-otp and /api/superusers/verify-otp (based on your controller)
+  // ✅ Yahan humne rasta badal kar Render wala kar diya hai
   const sendOtpUrl = mode === "signup" ? "/api/superusers/send-otp" : "/api/auth/password/resend";
   const verifyOtpUrl = mode === "signup" ? "/api/superusers/verify-otp" : "/api/auth/password/verify";
 
-  // helper: build absolute URL for localhost:8080
-  const toUrl = (path) => {
-    // if running frontend on 5173 and backend on 8080
-    const proto = window.location.protocol;
-    const host = window.location.hostname;
-    const backendPort = "8080";
-    return `${proto}//${host}:${backendPort}${path}`;
-  };
+  // 🔥 Fix: Localhost hata kar Render ka absolute URL setup kiya
+  const toUrl = (path) => `https://biyoans-backend.onrender.com${path}`;
 
   async function verify() {
     if (!otp || otp.trim().length < 4) {
@@ -54,7 +34,7 @@ export default function OTPModel({ isOpen, email = "", mode = "signup", onClose 
       const res = await fetch(toUrl(verifyOtpUrl), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, code: otp.trim() })
+        body: JSON.stringify({ email, code: otp.trim() }) // Backend "code" expect kar raha hai
       });
 
       const data = await res.json().catch(() => ({}));
@@ -63,12 +43,11 @@ export default function OTPModel({ isOpen, email = "", mode = "signup", onClose 
       }
 
       toast.success(data.message || "OTP verified");
-      // Let parent know verification succeeded. Parent will create user.
-      onClose?.(true);
+      // parent (RegistrationModel) ko success signal do taaki user create ho jaye
+      onClose?.(true); 
     } catch (e) {
       console.error("OTP verify error:", e);
       toast.error(e.message || "Failed to verify OTP");
-      onClose?.(false);
     } finally {
       setLoading(false);
     }
@@ -91,10 +70,6 @@ export default function OTPModel({ isOpen, email = "", mode = "signup", onClose 
         throw new Error(data.message || `Resend failed (HTTP ${res.status})`);
       }
       toast.success(data.message || "OTP resent");
-      // optionally display debug_code if backend returns it in dev
-      if (data.debug_code) {
-        console.info("OTP debug_code (dev):", data.debug_code);
-      }
     } catch (e) {
       console.error("Resend failed:", e);
       toast.error(e.message || "Failed to resend OTP");
@@ -105,19 +80,19 @@ export default function OTPModel({ isOpen, email = "", mode = "signup", onClose 
 
   return (
     <div className="fixed inset-0 z-[60] bg-black/50 flex items-center justify-center">
-      <div className="bg-white rounded-xl p-6 w-[95%] max-w-md">
-        <h2 className="text-xl font-bold mb-2">
-          {mode === "signup" ? "Verify your email" : "Enter the OTP to reset password"}
+      <div className="bg-white rounded-xl p-6 w-[95%] max-w-md shadow-2xl">
+        <h2 className="text-xl font-bold mb-2 text-gray-800">
+          {mode === "signup" ? "Verify your email" : "Reset password"}
         </h2>
-        <p className="text-sm mb-4">
-          We sent a 6-digit OTP to <b>{email}</b>. Enter it below.
+        <p className="text-sm mb-4 text-gray-600">
+          We sent a 6-digit OTP to <b>{email}</b>.
         </p>
 
         <input
-          className="w-full border px-3 py-2 rounded mb-3"
+          className="w-full border-2 border-purple-100 focus:border-purple-500 outline-none px-3 py-3 rounded-lg mb-3 text-center text-2xl tracking-widest font-bold"
           value={otp}
           onChange={(e) => setOtp(e.target.value.replace(/\D/g, ""))}
-          placeholder="Enter 6-digit OTP"
+          placeholder="000000"
           maxLength={6}
           inputMode="numeric"
         />
@@ -126,7 +101,7 @@ export default function OTPModel({ isOpen, email = "", mode = "signup", onClose 
           <button
             onClick={() => { onClose?.(false); }}
             disabled={loading || resendLoading}
-            className="px-3 py-2 border rounded text-sm"
+            className="px-4 py-2 border rounded-lg text-sm font-semibold hover:bg-gray-50 transition"
           >
             Cancel
           </button>
@@ -134,15 +109,15 @@ export default function OTPModel({ isOpen, email = "", mode = "signup", onClose 
           <button
             onClick={resend}
             disabled={resendLoading || loading}
-            className="px-3 py-2 border rounded text-sm"
+            className="px-4 py-2 border rounded-lg text-sm font-semibold hover:bg-gray-50 transition"
           >
-            {resendLoading ? "Resending..." : "Resend"}
+            {resendLoading ? "Sending..." : "Resend"}
           </button>
 
           <button
             onClick={verify}
             disabled={loading || resendLoading}
-            className="px-3 py-2 bg-purple-700 text-white rounded text-sm"
+            className="px-6 py-2 bg-purple-700 hover:bg-purple-800 text-white rounded-lg text-sm font-semibold transition"
           >
             {loading ? "Please wait..." : "Verify"}
           </button>
